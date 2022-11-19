@@ -40,7 +40,79 @@
 # код должен выполняться не выбрасывая исключений
 
 # TODO напишите Ваш код здесь
+from abc import ABC, abstractmethod
 
+
+class Transport(ABC):
+    @abstractmethod
+    def start_engine(self) -> None:
+        pass
+
+    @abstractmethod
+    def stop_engine(self) -> None:
+        pass
+
+    @abstractmethod
+    def move(self) -> None:
+        pass
+
+    @abstractmethod
+    def stop(self) -> None:
+        pass
+
+
+class Boat(Transport):
+    def start_engine(self) -> None:
+        print("Двигатель катера запущен")
+
+    def stop_engine(self) -> None:
+        print("Двигатель катера остановлен")
+
+    def move(self) -> None:
+        print("Катер едет")
+
+    def stop(self) -> None:
+        print("Катер остановился")
+
+
+class Car(Transport):
+    def start_engine(self) -> None:
+        print("Двигатель авто запущен")
+
+    def stop_engine(self) -> None:
+        print("Двигатель авто остановлен")
+
+    def move(self) -> None:
+        print("Авто едет")
+
+    def stop(self) -> None:
+        print("Авто остановился")
+
+
+class Electroscooter(Transport):
+    def start_engine(self) -> None:
+        print("Двигатель электроскутера запущен")
+
+    def stop_engine(self) -> None:
+        print("Двигатель электроскутера остановлен")
+
+    def move(self) -> None:
+        print("Электроскутер едет")
+
+    def stop(self) -> None:
+        print("Электроскутер остановился")
+
+
+# Создайте класс Person у которого будет один единственный метод use_transport.
+# В данный метод в качестве параметра должен передаваться объект реализующий интерфейс Transport
+# Метод для этого объекта должен запускать двигатель, двигаться куда-то, тормозить и глушить двигатель.
+# Для текстовой анимации Вы можете использовать любые фразы, или воспользоваться нашей подборкой:
+class Person(object):
+    def use_transport(self, transport: Transport) -> None:
+        transport.start_engine()
+        transport.stop_engine()
+        transport.move()
+        transport.stop()
 
 # Отрезок кода для самопроверки.
 # Запустите его, после того как выполните задание
